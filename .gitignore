@@ -3,3 +3,13 @@ dist/
 /.idea
 /.vscode
 *.log
+
+# Ignore environment variable files
+.env
+
+# Ignore lock files
+*.lock
+
+# Ignore local files
+.github/PR
+.github/ISSUE
