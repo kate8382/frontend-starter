@@ -63,4 +63,4 @@ Contributing
 
 License
 
-- MIT (choose and add LICENSE file if desired)
+- MIT — see [LICENSE](LICENSE)
