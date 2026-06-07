@@ -1,0 +1,15 @@
+.about {
+  width: 100%;
+  min-height: 120px;
+  padding: var(--padding-y) var(--padding-x);
+  background-color: var(--color-grey);
+  color: var(--color-white);
+  font-size: var(--text-size);
+  font-family: var(--font-sans);
+}
+
+.about__title {
+  font-size: var(--h2-size);
+  font-family: var(--font-head);
+  margin-bottom: var(--gap-md);
+}

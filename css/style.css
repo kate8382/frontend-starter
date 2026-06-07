@@ -1,0 +1,90 @@
+@import url('variables.css');
+@import url('fonts.css');
+@import url('header.css');
+@import url('hero.css');
+@import url('about.css');
+@import url('contacts.css');
+
+/* Base styles */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  display: block;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+button,
+input {
+  padding: 0;
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background-repeat: no-repeat;
+}
+
+.flex {
+  display: flex;
+}
+
+body {
+  max-width: 100vw;
+  min-height: 100vh;
+  padding: 0;
+  font-family: var(--font-sans);
+  background: var(--color-white);
+}
+
+.container {
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+}
+
+.main {
+  flex: 1;
+  flex-direction: column;
+  width: 100%;
+}
+
+.footer {
+  padding: var(--btn-padding-x);
+  text-align: center;
+  font-size: var(--btn-font-size);
+  font-family: var(--font-sans);
+  background: var(--color-black);
+  color: var(--color-white);
+}
