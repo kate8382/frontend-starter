@@ -21,29 +21,34 @@ Key features
 Quickstart
 
 1. Install dependencies:
-
+```
    npm ci
+```
 
 2. Run development server:
-
+```
    npm run dev
+```
 
    Visit http://localhost:5173/
 
 3. Run tests (Windows-friendly):
-
+```
    npm test -- --run --pool forks --maxWorkers 1
+```
 
-   Note: on Windows the `--pool forks --maxWorkers 1` flags help avoid worker startup issues with jsdom.
+   **Note:** on Windows the `--pool forks --maxWorkers 1` flags help avoid worker startup issues with jsdom.
 
 4. Lint and format:
-
+```
    npm run lint
    npm run format
+```
 
 5. Build for production:
-
+```
    npm run build
+```
 
 Project layout (important files)
 
