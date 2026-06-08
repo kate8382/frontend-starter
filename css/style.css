@@ -4,6 +4,7 @@
 @import url('hero.css');
 @import url('about.css');
 @import url('contacts.css');
+@import url('aside.css');
 
 /* Base styles */
 html {
@@ -68,6 +69,16 @@ body {
 }
 
 .container {
+  /* display: grid;
+  grid-template-columns: minmax(200px, 280px) 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "aside header"
+    "aside main"
+    "aside footer";
+  align-items: start;
+  width: 100%;
+  min-height: 100vh; */
   flex-direction: column;
   width: 100%;
   min-height: 100vh;
@@ -75,12 +86,14 @@ body {
 }
 
 .main {
+  /* grid-area: main; */
   flex: 1;
   flex-direction: column;
   width: 100%;
 }
 
 .footer {
+  /* grid-area: footer; */
   padding: var(--btn-padding-x);
   text-align: center;
   font-size: var(--btn-font-size);
