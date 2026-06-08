@@ -8,7 +8,7 @@ class AppUI {
   asideOpen: boolean;
   yearEl: HTMLElement | null;
   constructor() {
-    this.burger = document.querySelector('.nav__burger');
+    this.burger = document.querySelector('.header__burger');
     this.nav = document.getElementById('main-nav');
     this.asideToggle = document.querySelector('.aside__toggle');
     this.asideEl = document.getElementById('site-aside');
@@ -41,27 +41,27 @@ class AppUI {
     asideEl.classList.remove('is-open');
     asideToggle.setAttribute('aria-expanded', 'false');
 
-    asideToggle.addEventListener('click', (e) => {
+    asideToggle.addEventListener('click', (e: Event) => {
       e.stopPropagation();
       const expanded = asideToggle.getAttribute('aria-expanded') === 'true';
       if (expanded) this.closeAside();
       else this.openAside();
     });
 
-    closeBtn?.addEventListener('click', (e) => {
-      e.stopPropagation();
-      this.closeAside();
-    });
+    if (closeBtn) {
+      closeBtn.addEventListener('click', (e: Event) => {
+        e.stopPropagation();
+        this.closeAside();
+      });
+    }
 
-    // click outside to close aside (keeps behavior consistent)
-    document.addEventListener('click', (e) => {
+    document.addEventListener('click', (e: Event) => {
       const target = e.target as Node;
       if (!asideEl) return;
       if (!asideEl.contains(target) && !asideToggle.contains(target)) this.closeAside();
     });
 
-    // Esc to close aside
-    document.addEventListener('keydown', (e) => {
+    document.addEventListener('keydown', (e: KeyboardEvent) => {
       if (e.key === 'Escape') this.closeAside();
     });
   }
@@ -90,7 +90,7 @@ class AppUI {
   setupBurger() {
     const burger = this.burger;
     const nav = this.nav;
-    const asideEl = this.asideEl;
+    // const asideEl = this.asideEl;
     if (!burger || !nav) return;
     // ensure initial state
     burger.setAttribute('aria-expanded', 'false');
@@ -98,22 +98,7 @@ class AppUI {
 
     burger.addEventListener('click', (e) => {
       e.stopPropagation();
-      // on small screens, prefer showing the aside off-canvas if it exists
-      const isMobile = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
-      if (isMobile && asideEl) {
-        const expanded = burger.getAttribute('aria-expanded') === 'true';
-        if (expanded) {
-          this.closeAside();
-          this.closeMenu();
-        } else {
-          this.openAside();
-          this.closeMenu();
-          // keep the burger aria in sync with aside state
-          burger.setAttribute('aria-expanded', this.asideOpen ? 'true' : 'false');
-        }
-        return;
-      }
-
+      // Toggle the header navigation menu. The aside has its own toggle button
       this.toggleMenu();
     });
   }

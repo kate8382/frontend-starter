@@ -2,7 +2,7 @@
 
 class AppUI {
   constructor() {
-    this.burger = document.querySelector('.nav__burger');
+    this.burger = document.querySelector('.header__burger');
     this.nav = document.getElementById('main-nav');
     this.asideToggle = document.querySelector('.aside__toggle');
     this.asideEl = document.getElementById('site-aside');
@@ -26,7 +26,7 @@ class AppUI {
 
   setupAside() {
     const asideEl = this.asideEl;
-    const asideToggle = this.asideToggle || this.burger;
+    const asideToggle = this.asideToggle;
     if (!asideEl || !asideToggle) return;
 
     const closeBtn = asideEl.querySelector('.aside__close');
@@ -60,7 +60,7 @@ class AppUI {
 
   openAside() {
     const asideEl = this.asideEl;
-    const asideToggle = this.asideToggle || this.burger;
+    const asideToggle = this.asideToggle;
     if (!asideEl || !asideToggle) return;
     asideEl.classList.add('is-open');
     asideToggle.setAttribute('aria-expanded', 'true');
@@ -73,7 +73,7 @@ class AppUI {
 
   closeAside() {
     const asideEl = this.asideEl;
-    const asideToggle = this.asideToggle || this.burger;
+    const asideToggle = this.asideToggle;
     if (!asideEl || !asideToggle) return;
     asideEl.classList.remove('is-open');
     asideToggle.setAttribute('aria-expanded', 'false');
@@ -94,16 +94,12 @@ class AppUI {
     burger.addEventListener('click', (e) => {
       e.stopPropagation();
       const isMobile = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
+
       if (isMobile && asideEl) {
         const expanded = burger.getAttribute('aria-expanded') === 'true';
-        if (expanded) {
-          this.closeAside();
-          this.closeMenu();
-        } else {
-          this.openAside();
-          this.closeMenu();
-          burger.setAttribute('aria-expanded', this.asideOpen ? 'true' : 'false');
-        }
+        if (expanded) this.closeAside();
+        else this.openAside();
+        burger.setAttribute('aria-expanded', String(this.asideOpen));
         return;
       }
 

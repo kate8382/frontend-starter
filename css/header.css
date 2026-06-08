@@ -20,7 +20,7 @@
   font-weight: 600;
 }
 
-.nav__burger {
+.header__burger {
   display: none;
   padding: var(--btn-padding-y) var(--btn-padding-x);
   color: inherit;
@@ -49,7 +49,7 @@
     display: flex;
   }
 
-  .nav__burger {
+  .header__burger {
     display: inline-flex;
     align-items: center;
     justify-content: center;
