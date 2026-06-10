@@ -1,4 +1,4 @@
-name: CI
+name: build-and-test
 
 on:
   push:
@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: 'lts/*'
       - name: Install deps
-        run: npm install
+        run: npm ci
       - name: Lint
         run: npm run lint || echo "eslint not configured"
       - name: Test
