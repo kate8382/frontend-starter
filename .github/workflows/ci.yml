@@ -1,5 +1,10 @@
 name: CI
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 on:
   push:
     branches: [main]
@@ -22,3 +27,25 @@ jobs:
         run: npm run lint || echo "eslint not configured"
       - name: Test
         run: npm run test || echo "vitest not configured"
+
+  deploy-pages:
+    name: deploy-pages
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+      - name: Install deps
+        run: npm ci
+      - name: Build
+        run: npm run build
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./dist
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v1
