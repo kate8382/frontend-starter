@@ -35,7 +35,7 @@
     display: none;
     position: absolute;
     left: 50%;
-    top: var(--header-height, 60px);
+    top: var(--header-height, auto);
     z-index: 4;
     flex-direction: column;
     gap: var(--gap-max);
