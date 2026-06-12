@@ -13,3 +13,4 @@ dist/
 # Ignore local files
 .github/PR
 .github/ISSUE
+assets/
