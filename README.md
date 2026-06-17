@@ -2,14 +2,14 @@
 
 A lightweight, accessible frontend starter built with Vite and TypeScript. It provides a compact foundation for prototypes, demos, and small projects with a focus on responsiveness, accessibility, and simple class-based patterns.
 
-Why this starter
+### Why this starter
 
 - Minimal opinionated setup — Vite dev server, build, and plain JS/TS examples.
 - Accessible UI patterns (ARIA, focus management) implemented out of the box.
 - Responsive primitives using CSS variables and `clamp()` for typography and spacing.
 - Test-ready: Vitest + jsdom with example unit and DOM tests.
 
-Key features
+### Key features
 
 - Vite dev server and production build (`npm run dev`, `npm run build`).
 - TypeScript sources in `ts/` and plain-JS mirrors in `js/` for quick integration.
@@ -21,36 +21,41 @@ Key features
 Quickstart
 
 1. Install dependencies:
+
 ```
    npm ci
 ```
 
 2. Run development server:
+
 ```
    npm run dev
 ```
 
-   Visit http://localhost:5173/
+Visit http://localhost:5173/
 
 3. Run tests (Windows-friendly):
+
 ```
    npm test -- --run --pool forks --maxWorkers 1
 ```
 
-   **Note:** on Windows the `--pool forks --maxWorkers 1` flags help avoid worker startup issues with jsdom.
+**Note:** on Windows the `--pool forks --maxWorkers 1` flags help avoid worker startup issues with jsdom.
 
 4. Lint and format:
+
 ```
    npm run lint
    npm run format
 ```
 
 5. Build for production:
+
 ```
    npm run build
 ```
 
-Project layout (important files)
+### Project layout (important files)
 
 - `index.html` — HTML shell, header and commented example for enabling `aside` and JS usage.
 - `ts/` — TypeScript source files (`api.ts`, `main.ts`) and tests (`ts/__test__`).
@@ -70,7 +75,7 @@ If you prefer to use the plain-JS files instead of the TypeScript entry, replace
 Adaptive layout and tokens
 The `css/variables.css` file exposes a set of CSS custom properties that drive spacing and typography. Many values use `clamp()` so components scale smoothly between mobile and desktop sizes. This makes the starter already well-suited for responsive projects without extra effort.
 
-Testing
+### Testing
 
 - Unit and DOM tests live in `ts/__test__` and `js/__test__`. Tests use `vi` (Vitest) and `jsdom` for DOM interactions.
 - Run all tests:
@@ -79,14 +84,20 @@ Testing
 npm test -- --run --pool forks --maxWorkers 1
 ```
 
-Contributing
+### Contributing
 
 - Open an issue or submit a PR. Keep changes focused and include tests where appropriate.
 
-CI suggestions
+### CI suggestions
 
 - The repository already contains a minimal workflow. If you expand CI later, include steps for `npm ci`, `npm test -- --run --pool forks --maxWorkers 1`, and `npm run lint`.
 
-License
+### Publications
+
+- dev.to — [The "Invisible" Routine: Why Every Developer Needs Their Own Code Handwriting](https://dev.to/kate8382/the-invisible-routine-why-every-dev-needs-their-own-code-handwriting-5g4d)
+- Coder Legion — [The "Invisible" Routine: Why Every Developer Needs Their Own Code Handwriting](https://coderlegion.com/20431/the-invisible-routine-why-every-developer-needs-their-own-code-handwriting)
+- LinkedIn — [The "Invisible" Routine: Why Every Developer Needs Their Own Code Handwriting 🧠✨](https://www.linkedin.com/feed/update/urn:li:activity:7471241029388566528/)
+
+### License
 
 - MIT — see [LICENSE](LICENSE)
