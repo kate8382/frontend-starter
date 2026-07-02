@@ -9,7 +9,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint \"ts/**/*.{ts,tsx}\" --ext .ts,.tsx && eslint . --ext .js,.jsx --ignore-pattern \"dist/**\" --ignore-pattern \"node_modules/**\"",
-    "format": "prettier --write .",
+    "format": "prettier --write \"**/*.{js,ts,css,scss,json,md}\"",
     "test": "vitest --environment jsdom"
   },
   "devDependencies": {

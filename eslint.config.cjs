@@ -73,7 +73,10 @@ module.exports = defineConfig([
       ecmaVersion: 'latest',
       sourceType: 'module',
     },
-    plugins: { '@typescript-eslint': require('@typescript-eslint/eslint-plugin'), prettier: prettierPlugin },
+    plugins: {
+      '@typescript-eslint': require('@typescript-eslint/eslint-plugin'),
+      prettier: prettierPlugin,
+    },
     rules: {
       '@typescript-eslint/no-unused-vars': ['warn'],
       'no-unused-vars': 'off',

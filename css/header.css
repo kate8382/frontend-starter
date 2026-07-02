@@ -29,7 +29,6 @@
 }
 
 @media (max-width: 768px) {
-
   /* increase specificity to override the generic .flex helper */
   .nav .nav__list {
     display: none;
