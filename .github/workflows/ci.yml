@@ -52,9 +52,31 @@ jobs:
           echo "List root:" && ls -la
           echo "List repo folder:" && ls -la ${{ github.workspace }} || true
           echo "List dist:" && ls -la ./dist || true
-      - name: Deploy to gh-pages (peaceiris)
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ${{ github.workspace }}/dist
-          allow_empty_commit: true
+      - name: Deploy to gh-pages (direct push)
+        run: |
+          set -eux
+          REPO="https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
+          CLONE_DIR=$(mktemp -d)
+          echo "Cloning gh-pages branch..."
+          if git ls-remote --exit-code --heads "$REPO" gh-pages; then
+            git clone --depth=1 --branch gh-pages "$REPO" "$CLONE_DIR"
+          else
+            git clone "$REPO" "$CLONE_DIR"
+            cd "$CLONE_DIR"
+            git checkout --orphan gh-pages
+            cd -
+          fi
+          echo "Preparing publish dir"
+          rm -rf "$CLONE_DIR"/* || true
+          cp -a ${{ github.workspace }}/dist/. "$CLONE_DIR"/ || true
+          cd "$CLONE_DIR"
+          git add --all
+          if git diff --staged --quiet; then
+            echo "No changes to deploy"
+            exit 0
+          fi
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+          git commit -m "deploy: ${{ github.sha }}"
+          git push "$REPO" HEAD:gh-pages
+        shell: bash
