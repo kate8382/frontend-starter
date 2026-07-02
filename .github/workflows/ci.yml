@@ -22,6 +22,7 @@ jobs:
         with:
           node-version: 'lts/*'
       - name: Install deps
+        working-directory: ${{ github.workspace }}
         run: npm ci
       - name: Lint
         run: npm run lint || echo "eslint not configured"
@@ -40,11 +41,20 @@ jobs:
         with:
           node-version: 'lts/*'
       - name: Install deps
+        working-directory: ${{ github.workspace }}
         run: npm ci
       - name: Build
+        working-directory: ${{ github.workspace }}
         run: npm run build
+      - name: 'Debug: show workspace'
+        run: |
+          echo "PWD: $(pwd)"
+          echo "List root:" && ls -la
+          echo "List repo folder:" && ls -la ${{ github.workspace }} || true
+          echo "List dist:" && ls -la ./dist || true
       - name: Deploy to gh-pages (peaceiris)
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ${{ github.workspace }}/dist
+          allow_empty_commit: true
