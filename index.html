@@ -1,39 +1,43 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <!-- <link href="./favicon.ico" rel="icon"> -->
+    <!-- <link href="./favicon.png" rel="icon" sizes="64x64"> -->
+    <!-- <link href="./favicon.svg" rel="icon" type="image/svg+xml"> -->
+    <title>Frontend Starter — Skeleton</title>
+    <!-- <script src="js/main.js" type="module"></script> -->
+    <script type="module" crossorigin src="/frontend-starter/assets/index-BldSCMnH.js"></script>
+    <link rel="stylesheet" crossorigin href="/frontend-starter/assets/index-N-Gd5kPV.css">
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <!-- <link href="./favicon.ico" rel="icon"> -->
-  <!-- <link href="./favicon.png" rel="icon" sizes="64x64"> -->
-  <!-- <link href="./favicon.svg" rel="icon" type="image/svg+xml"> -->
-  <title>Frontend Starter — Skeleton</title>
-  <!-- <script src="js/main.js" type="module"></script> -->
-  <script type="module" crossorigin src="/frontend-starter/assets/index-BldSCMnH.js"></script>
-  <link rel="stylesheet" crossorigin href="/frontend-starter/assets/index-N-Gd5kPV.css">
-</head>
+  <body>
+    <div class="container flex">
+      <header class="header flex" role="banner">
+        <a class="header__logo" href="/">
+          <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCAxMjAgNDAiIHJvbGU9ImltZyIgYXJpYS1sYWJlbD0i0JvQvtCz0L7RgtC40L8iPgogIDxyZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI2IiBmaWxsPSIjMTExIiAvPgogIDx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmaWxsPSIjZmZmIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjQiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkxvZ288L3RleHQ+Cjwvc3ZnPgo=" alt="Frontend Starter Logo" width="180" height="80" />
+        </a>
 
-<body>
-  <div class="container flex">
-    <header class="header flex" role="banner">
-      <a class="header__logo" href="/">
-        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCAxMjAgNDAiIHJvbGU9ImltZyIgYXJpYS1sYWJlbD0i0JvQvtCz0L7RgtC40L8iPgogIDxyZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI2IiBmaWxsPSIjMTExIiAvPgogIDx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmaWxsPSIjZmZmIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjQiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkxvZ288L3RleHQ+Cjwvc3ZnPgo=" alt="Frontend Starter Logo" width="180" height="80">
-      </a>
+        <nav class="nav header__nav" aria-label="Main navigation" role="navigation">
+          <ul class="nav__list flex" id="main-nav">
+            <li class="nav__item"><a class="nav__link" href="#hero">Home</a></li>
+            <li class="nav__item"><a class="nav__link" href="#about">About</a></li>
+            <li class="nav__item"><a class="nav__link" href="#contacts">Contacts</a></li>
+          </ul>
+        </nav>
 
-      <nav class="nav header__nav" aria-label="Main navigation" role="navigation">
-        <ul class="nav__list flex" id="main-nav">
-          <li class="nav__item"><a class="nav__link" href="#hero">Home</a></li>
-          <li class="nav__item"><a class="nav__link" href="#about">About</a></li>
-          <li class="nav__item"><a class="nav__link" href="#contacts">Contacts</a></li>
-        </ul>
-      </nav>
-
-      <button class="header__burger" aria-controls="main-nav" aria-expanded="false" aria-label="Open menu">
+        <button
+          class="header__burger"
+          aria-controls="main-nav"
+          aria-expanded="false"
+          aria-label="Open menu"
+        >
           ☰
         </button>
-    </header>
+      </header>
 
-    <!-- aside (optional)
+      <!-- aside (optional)
       Example commented markup for an accessible aside. Uncomment to enable. 
 
     <aside class="aside" id="site-aside" aria-labelledby="aside__title" role="complementary">
@@ -57,26 +61,25 @@
       </div>
     </aside>-->
 
-    <main class="main flex" id="main" role="main">
-      <section class="hero flex" id="hero" aria-labelledby="hero__title">
-        <h1 class="hero__title">Hero / Title</h1>
-        <p class="hero__description">Hero / Description</p>
-        <button class="btn hero__btn" aria-label="Call to Action">Call to&nbsp;Action</button>
-      </section>
+      <main class="main flex" id="main" role="main">
+        <section class="hero flex" id="hero" aria-labelledby="hero__title">
+          <h1 class="hero__title">Hero / Title</h1>
+          <p class="hero__description">Hero / Description</p>
+          <button class="btn hero__btn" aria-label="Call to Action">Call to&nbsp;Action</button>
+        </section>
 
-      <section class="about" id="about" aria-labelledby="about__title">
-        <h2 class="about__title">About</h2>
-      </section>
+        <section class="about" id="about" aria-labelledby="about__title">
+          <h2 class="about__title">About</h2>
+        </section>
 
-      <section class="contacts" id="contacts" aria-labelledby="contacts__title">
-        <h2 class="contacts__title">Contacts</h2>
-      </section>
-    </main>
+        <section class="contacts" id="contacts" aria-labelledby="contacts__title">
+          <h2 class="contacts__title">Contacts</h2>
+        </section>
+      </main>
 
-    <footer class="footer" role="contentinfo">
-      <small>&copy;<span id="year"></span> Frontend Starter</small>
-    </footer>
-  </div>
-</body>
-
+      <footer class="footer" role="contentinfo">
+        <small>&copy;<span id="year"></span> Frontend Starter</small>
+      </footer>
+    </div>
+  </body>
 </html>
