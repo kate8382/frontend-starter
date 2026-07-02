@@ -43,6 +43,12 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
+      - name: Debug: show workspace
+        run: |
+          echo "PWD: $(pwd)"
+          echo "List root:" && ls -la
+          echo "List repo folder:" && ls -la ${{ github.workspace }} || true
+          echo "List dist:" && ls -la ./dist || true
       - name: Deploy to gh-pages (peaceiris)
         uses: peaceiris/actions-gh-pages@v3
         with:
