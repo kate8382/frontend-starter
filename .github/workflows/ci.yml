@@ -99,9 +99,10 @@ jobs:
           echo "List root:" && ls -la
           echo "List repo folder:" && ls -la ${{ github.workspace }} || true
           echo "List dist:" && ls -la ./dist || true
-      - name: Upload pages artifact
-        uses: actions/upload-pages-artifact@v1
+      - name: Upload pages artifact (upload-artifact v4)
+        uses: actions/upload-artifact@v4
         with:
+          name: github-pages
           path: ./dist
 
       - name: Deploy to GitHub Pages
